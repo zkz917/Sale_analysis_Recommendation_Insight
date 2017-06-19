@@ -1,0 +1,330 @@
+<!DOCTYPE html>
+<!-- saved from url=(0046)/ -->
+<html lang="en"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <link rel="icon" href="static/insighticon.ico">
+
+    <title>Dashboard Insight Project</title>
+
+    <!-- Bootstrap core CSS -->
+    <link href="static/bootstrap.min.css" rel="stylesheet">
+
+    <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
+    <link href="static/ie10-viewport-bug-workaround.css" rel="stylesheet">
+
+    <!-- Custom styles for this template -->
+    <link href="static/dashboard.css" rel="stylesheet">
+
+    <!-- Just for debugging purposes. Don't actually copy these 2 lines! -->
+    <!--[if lt IE 9]><script src="../../assets/js/ie8-responsive-file-warning.js"></script><![endif]-->
+    <script src="static/ie-emulation-modes-warning.js"></script>
+
+    <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+      <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
+      <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+    <![endif]-->
+  <style id="style-1-cropbar-clipper">/* Copyright 2014 Evernote Corporation. All rights reserved. */
+.en-markup-crop-options {
+    top: 18px !important;
+    left: 50% !important;
+    margin-left: -100px !important;
+    width: 200px !important;
+    border: 2px rgba(255,255,255,.38) solid !important;
+    border-radius: 4px !important;
+}
+
+.en-markup-crop-options div div:first-of-type {
+    margin-left: 0px !important;
+}
+</style></head>
+
+  <body>
+
+    <nav class="navbar navbar-inverse navbar-fixed-top">
+      <div class="container-fluid">
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+         <a class="navbar-brand" href="/">Insight Project</a>
+        </div>
+        <div id="navbar" class="navbar-collapse collapse">
+          <ul class="nav navbar-nav navbar-right">
+            <li><a href="/">Dashboard</a></li>
+            <li><a href="/">Settings</a></li>
+            <li><a href="/">Profile</a></li>
+            <li><a href="/">Help</a></li>
+          </ul>
+          <form class="navbar-form navbar-right" _lpchecked="1">
+            <input type="text" class="form-control" placeholder="Search...">
+          </form>
+        </div>
+      </div>
+    </nav>
+
+    <div class="container-fluid">
+      <div class="row">
+        <div class="col-sm-3 col-md-2 sidebar">
+          <ul class="nav nav-sidebar">
+            <li class="active"><a href="/">Overview <span class="sr-only">(current)</span></a></li>
+            <li><a href="/age">Age</a></li>
+            <li><a href="/realmap">Map</a></li>
+            <li><a href="/">Export</a></li>
+          </ul>
+          <ul class="nav nav-sidebar">
+            <li><a href="/realmap">Map</a></li>
+            <li><a href="https://getbootstrap.com/examples/dashboard/?">Nav item again</a></li>
+            <li><a href="https://getbootstrap.com/examples/dashboard/?">One more nav</a></li>
+           <li><a href="https://getbootstrap.com/examples/dashboard/?">Another nav item</a></li>
+            <li><a href="https://getbootstrap.com/examples/dashboard/?">More navigation</a></li>
+          </ul>
+          <ul class="nav nav-sidebar">
+            <li><a href="https://getbootstrap.com/examples/dashboard/?">Nav item again</a></li>
+            <li><a href="https://getbootstrap.com/examples/dashboard/?">One more nav</a></li>
+            <li><a href="https://getbootstrap.com/examples/dashboard/?">Another nav item</a></li>
+          </ul>
+        </div>
+        <div class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main">
+          <h1 class="page-header">Stream Data Display</h1>
+
+          <div class="row placeholders">
+            <div class="col-xs-6 col-sm-12 placeholder">
+              <div id="container" style="width: auto;height:auto;"></div>
+            </div>
+          </div>
+
+
+
+        </div>
+      </div>
+    </div>
+
+    <!-- Bootstrap core JavaScript
+    ================================================== -->
+    <!-- Placed at the end of the document so the pages load faster -->
+    <script src="static/jquery.min.js"></script>
+    <script>window.jQuery || document.write('<script src="../../assets/js/vendor/jquery.min.js"><\/script>')</script>
+ <script src="static/bootstrap.min.js"></script>
+    <!-- Just to make our placeholder images work. Don't actually copy the next line! -->
+    <script src="static/holder.min.js"></script>
+    <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
+    <script src="static/ie10-viewport-bug-workaround.js"></script>
+    <script src="static/jquery-3.1.1.min.js"></script>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script src="https://code.highcharts.com/highcharts.src.js"></script>
+    <script src="http://code.highcharts.com/modules/exporting.js"></script>
+    <script src="static/highmaps.js"></script>
+    <script src="static/data.js"></script>
+    <script src="static/us-all.js"></script>
+    <script type="text/javascript">
+    $(document).ready(function () {
+    Highcharts.setOptions({
+        global: {
+            useUTC: false
+        }
+    });
+
+    Highcharts.chart('container', {
+        chart: {
+            type: 'column',
+            animation: Highcharts.svg, // don't animate in old IE
+            marginRight: 10,
+            events: {
+                load: function () {
+                 // set up the updating of the chart each second
+                    var series1 = this.series[0];
+                    var series2 = this.series[1];
+                    var series3 = this.series[2];
+                    var series4 = this.series[3];
+                    var series5 = this.series[4];
+                    var series6 = this.series[5];
+                    setInterval(function () {
+                        $.getJSON('/agedata', function (data) {
+
+                        var x = (new Date()).getTime(), // current time
+                        count1 = $('#age1').text();
+                        y = data[0].age;
+                        series1.addPoint([x, y], true, true);
+
+                        count2 = $('#age2').text();
+                        y1 = data[1].age;
+                        series2.addPoint([x, y1], true, true);
+
+                        y2 = data[2].age;
+                        series3.addPoint([x, y2], true, true);
+                        y3 = data[3].age;
+                        series4.addPoint([x, y3], true, true);
+                        y4 = data[4].age;
+                        series5.addPoint([x, y4], true, true);
+                        y5 = data[5].age;
+                        series6.addPoint([x, y5], true, true);
+
+                         });
+
+                         }, 3000);
+                }
+            }
+        },
+        title: {
+            text: 'Realtime Sale Display'
+        },
+        xAxis: {
+            type: 'datetime',
+            tickPixelInterval: 50
+        },
+        yAxis: {
+            title: {
+                text: 'Amount'
+            },
+            plotLines: [{
+                value: 0,
+                width: 0.2,
+                color: '#808080'
+            }]
+        },
+        tooltip: {
+            formatter: function () {
+                return '<b>' + this.series.name + '</b><br/>' +
+                    Highcharts.dateFormat('%Y-%m-%d %H:%M:%S', this.x) + '<br/>' +
+                    Highcharts.numberFormat(this.y, 2);
+            }
+        legend: {
+            enabled: true
+        },
+        exporting: {
+            enabled: true
+        },
+        plotOptions: {
+            series: {
+                pointWidth: 1//width of the column bars irrespective of the chart size
+            }
+        },
+        series: [{
+            name: 'age1',
+            data: (function () {
+                // generate an array of random data
+                var data = [],
+                    time = (new Date()).getTime(),
+                    i;
+
+                for (i = -19; i <= 0; i += 1) {
+                    data.push({
+                        x: time + i * 1000,
+                        y: Math.random()
+                    });
+                }
+                return data;
+            }())
+        },
+       {
+            name: 'age2',
+            data: (function () {
+                // generate an array of random data
+                var data = [],
+                    time = (new Date()).getTime(),
+                    i;
+
+                for (i = -19; i <= 0; i += 1) {
+                    data.push({
+                        x: time + i * 1000,
+                        y: Math.random()
+                    });
+                }
+                return data;
+            }())
+        },
+        {
+            name: 'age3',
+            data: (function () {
+                // generate an array of random data
+                var data = [],
+                    time = (new Date()).getTime(),
+                    i;
+
+                for (i = -19; i <= 0; i += 1) {
+                    data.push({
+                        x: time + i * 1000,
+                        y: Math.random()
+                   });
+                }
+                return data;
+            }())
+        },
+        {
+            name: 'age4',
+            data: (function () {
+                // generate an array of random data
+                var data = [],
+                    time = (new Date()).getTime(),
+                    i;
+
+                for (i = -19; i <= 0; i += 1) {
+                    data.push({
+                        x: time + i * 1000,
+                        y: Math.random()
+                    });
+                }
+                return data;
+            }())
+        },
+        {
+            name: 'age5',
+            data: (function () {
+                // generate an array of random data
+                var data = [],
+                    time = (new Date()).getTime(),
+                    i;
+
+                for (i = -19; i <= 0; i += 1) {
+                    data.push({
+                        x: time + i * 1000,
+                        y: Math.random()
+                    });
+                }
+                return data;
+            }())
+        },
+        {
+            name: 'age6',
+            data: (function () {
+                // generate an array of random data
+                var data = [],
+                    time = (new Date()).getTime(),
+                    i;
+
+                for (i = -19; i <= 0; i += 1) {
+                    data.push({
+                        x: time + i * 1000,
+                        y: Math.random()
+                    });
+                }
+                return data;
+            }())
+        }
+
+
+
+        ]
+    });
+});
+</script>
+
+
+
+
+</body></html>
+
+
+
+
+
