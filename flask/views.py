@@ -33,7 +33,7 @@ def my_form_post():
         rlist1 = reclist[1:-1].split(', ')
         jrespose = [{'pid':int(x),'userid':int(uid)} for x in rlist1]
         return render_template('dashboard.html',uid= jrespose)
-    
+
     else:
          jresponse = [{'pid': randint(1,30000),'userid': int(uid)} for i in range(10)]
          return render_template('dashboard.html',uid = jresponse)
@@ -56,7 +56,7 @@ def age():
 def agedata():
     response = []
     timeforsearch = int(round(time.time() * 1000)) - 3*1000
-    statement = "SELECT * FROM realage WHERE timestamp > %d"%timeforsearch
+    statement = "SELECT * FROM realtimeage WHERE timestamp > %d"%timeforsearch
     response = session.execute(statement)
     response_list = []
     for val in response:
@@ -70,7 +70,7 @@ def agedata():
 def mapresult():
     response = []
     timeforsearch = int(round(time.time() * 1000)) - 3*1000
-    statement = "SELECT * FROM realstates WHERE timestamp > %d"%timeforsearch
+    statement = "SELECT * FROM realtimestate WHERE timestamp > %d"%timeforsearch
     response = session.execute(statement)
     response_list = []
     for val in response:
