@@ -24,10 +24,12 @@ def process(rdd):
         # Creates a temporary view using the DataFrame
         df.createOrReplaceTempView("insight")
 
-        age_sqlDF = spark.sql("SELECT age, count(*) as count, max(timestamp) as timestamp FROM insight group by age")
+        age_sqlDF = spark.sql("SELECT age, count(*) as count, max(timestamp) as timestamp FROM insight group by age;")
         
-        state_sqlDF = spark.sql("SELECT state, count(*) as count, max(timestamp) as timestamp FROM insight group by state")
+        state_sqlDF = spark.sql("SELECT state, count(*) as count, max(timestamp) as timestamp FROM insight group by state;")
         
+        popular_sqlDF = spark.sql(" SELECT product_id as pid, count(*) as count, max(timestamp) as timestamp FROM insight group by product_id ORDER BY count DESC LIMIT 10;")
+
         age_sqlDF.write \
              .format("org.apache.spark.sql.cassandra") \
              .mode('append') \
@@ -38,6 +40,13 @@ def process(rdd):
              .format("org.apache.spark.sql.cassandra") \
              .mode('append') \
              .options(table="realtimestate", keyspace="insight") \
+             .save()
+
+
+        popular_sqlDF.write \
+             .format("org.apache.spark.sql.cassandra") \
+             .mode('append') \
+             .options(table="popularproduct", keyspace="insight") \
              .save()
         
     except:
