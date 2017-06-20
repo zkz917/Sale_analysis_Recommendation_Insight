@@ -12,6 +12,6 @@ CREATE TABLE realtimestateproduct (state int, pid text, count int, timestamp tim
 
 CREATE TABLE realtimeage (age int, count int, timestamp timestamp, PRIMARY KEY(age,count)) WITH CLUSTERING ORDER BY (timestamp DESC, count DESC);
 
-CREATE TABLE realtimeageproduct (age int, pid text, count int, timestamp timestamp, PRIMARY KEY(age,count)) WITH CLUSTERING ORDER BY (age DESC, count DESC);
+CREATE TABLE popularproduct (pid text, count int, timestamp timestamp, PRIMARY KEY(pid, timestamp)) WITH CLUSTERING ORDER BY (count DESC);
 
 

@@ -12,7 +12,7 @@ session = cluster.connect('insight')
 app = Flask(__name__)
 
 
-# initialize the initial page with random data
+# initialize the initial page with random data.
 @app.route('/')
 def dash():
     jresponse = [{'pid': randint(1,99),'userid':1} for i in range(10)]
@@ -34,21 +34,27 @@ def my_form_post():
         jrespose = [{'pid':int(x),'userid':int(uid)} for x in rlist1]
         return render_template('dashboard.html',uid= jrespose)
 
+# if it's a new user then recommend the curret most popular product 
     else:
-         jresponse = [{'pid': randint(1,30000),'userid': int(uid)} for i in range(10)]
-         return render_template('dashboard.html',uid = jresponse)
+        timeforsearch = int(round(time.time() * 1000)) - 3*1000
+        statement = "SELECT * FROM popularproduct WHERE timestamp > %d;"%timeforsearch
+        response = session.execute(statement)
+        response_list = []
+        for val in response:
+            response_list.append[val]
+        jsonresponse = [{'pid': int(x.pid),'uerid':int(uid) } for x in response_list]
+        return render_template('dashboard.html',uid = jsonresponse)
 
 
 
 @app.route('/realmap')
 def realmap():
-
     return render_template('map.html')
 
 
 @app.route('/age')
 def age():
-        return render_template('realage.html')
+    return render_template('realage.html')
 
 
 # generate realtime age data and dumps to json file
@@ -56,7 +62,7 @@ def age():
 def agedata():
     response = []
     timeforsearch = int(round(time.time() * 1000)) - 3*1000
-    statement = "SELECT * FROM realtimeage WHERE timestamp > %d"%timeforsearch
+    statement = "SELECT * FROM realtimeage WHERE timestamp > %d;"%timeforsearch
     response = session.execute(statement)
     response_list = []
     for val in response:
@@ -70,7 +76,7 @@ def agedata():
 def mapresult():
     response = []
     timeforsearch = int(round(time.time() * 1000)) - 3*1000
-    statement = "SELECT * FROM realtimestate WHERE timestamp > %d"%timeforsearch
+    statement = "SELECT * FROM realtimestate WHERE timestamp > %d;"%timeforsearch
     response = session.execute(statement)
     response_list = []
     for val in response:

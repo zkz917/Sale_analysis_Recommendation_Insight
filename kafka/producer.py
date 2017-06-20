@@ -13,9 +13,10 @@ class Producer(object):
             message = {
                         'user_id': str(randint(1,10000000)),
                         'product_id': str(randint(1,100000)),
-                        'action': randint(0,3),
+                        'action': randint(0,2),
                         'gender': randint(0,2),
                         'state': randint(0,50),
+                        'age':randint(0,5)
                         'timestamp': datetime.now().strftime('%Y-%m-%d %H:%M:%S')      
                       }
 
