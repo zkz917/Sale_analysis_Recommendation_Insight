@@ -1,6 +1,9 @@
 # Sale_analysis_Recommendation_Insight
-A dashboard app to show the sale analysis and recommendation results.
-[Demo Site](http://goo.gl/nmcbR4)
+A dashboard app to show the sale analysis and recommendation results.  
+[Demo Slide](http://goo.gl/nmcbR4)  
+[Demo Site](http://saleinsight.site)  
+
+
 
 ## RealTime analysis
 ### 1. Kafka
