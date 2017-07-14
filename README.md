@@ -19,7 +19,7 @@ A dashboard app to show the sale analysis and recommendation results.
 Reference-style: 
 ![alt text][logo]
 
-[logo]: Sale_analysis_Recommendation_Insight/image/data.png
+[logo]: https://github.com/zkz917/Sale_analysis_Recommendation_Insight/blob/master/image/data.png
 
 ### MapReduce Job
 cd src
