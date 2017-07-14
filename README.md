@@ -2,7 +2,7 @@
 A dashboard app to show the sale analysis and recommendation results.  
 [Demo Slide](http://goo.gl/nmcbR4)  
 [Demo Video](https://youtu.be/z0aIcaDKFn0)  
-[Demo Site](http://saleinsight.site) 
+[Demo Site](http://saleinsight.site)  
 
 
 
