@@ -1,5 +1,19 @@
 # Sale_analysis_Recommendation_Insight
 A dashboard app to show the sale analysis and recommendation results.
+## RealTime analysis
+### 1. Kafka
+### 2. Spark Streaming
+### 3. Cassandra
+
+## Batch Processing 
+### 1. HDFS
+### 2. Hadoop MapReduce
+
+## Data Pipeline
+Reference-style: 
+![alt text][logo]
+
+[logo]: https://github.com/adam-p/markdown-here/raw/master/src/common/images/icon48.png "Logo Title Text 2"
 
 ### MapReduce Job
 cd src
