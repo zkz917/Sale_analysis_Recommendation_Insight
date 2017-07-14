@@ -1,5 +1,7 @@
 # Sale_analysis_Recommendation_Insight
 A dashboard app to show the sale analysis and recommendation results.
+[Demo Site](http://goo.gl/nmcbR4)
+
 ## RealTime analysis
 ### 1. Kafka
 ### 2. Spark Streaming
