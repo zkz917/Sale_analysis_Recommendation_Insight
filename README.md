@@ -1,9 +1,8 @@
 # Sale_analysis_Recommendation_Insight
-A dashboard app to show the sale analysis and recommendation results.  
+A dashboard app to show the sale analysis and recommendation results.  
 [Demo Slide](http://goo.gl/nmcbR4)  
-[Demo Site](http://saleinsight.site） 
 [Demo Video](https://youtu.be/z0aIcaDKFn0)  
-
+[Demo Site](http://saleinsight.site) 
 
 
 
