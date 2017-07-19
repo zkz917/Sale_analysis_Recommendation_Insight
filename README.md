@@ -9,10 +9,11 @@ A dashboard app to show the realtime sale analysis and provide recommendation li
 
 ## RealTime analysis
 ### 1. Kafka  
-Kafka as the message broker. Deploied on 3 ec2 instances.  
+Kafka as the message broker. Deployed on the Kafka system on AWS cluster with 3 ec2 instances.  
 
 ### 2. Spark Streaming
 Spark Streaming to do the micro-batch jobs. Calculate the trending of products for customers with different ages and in different locations. The window size is adjustable.  
+
 ### 3. Cassandra
 Cassandra as the database to store the recommendation list and results from spark streaming.
 
